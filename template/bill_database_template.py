@@ -11,47 +11,71 @@ def get_template(title_text: str, parent_page_id: str):
         ],
         "properties": {
             "收/支": {
-                "name": "收/支",
-                "type": "select",
                 "select": {
-                    "options": []
+                    "options": [
+                        {
+                            "name": "收入",
+                            "color": "pink"
+                        },
+                        {
+                            "name": "支出",
+                            "color": "green"
+                        }
+                    ]
                 }
             },
             "交易类型": {
-                "name": "交易类型",
-                "type": "select",
                 "select": {
-                    "options": []
+                    "options": [
+                        {
+                            "name": "即时到账交易",
+                            "color": "orange"
+                        },
+                        {
+                            "name": "支付宝担保交易",
+                            "color": "purple"
+                        },
+                        {
+                            "name": "转账",
+                            "color": "gray"
+                        },
+                        {
+                            "name": "商户消费",
+                            "color": "yellow"
+                        },
+                        {
+                            "name": "扫二维码付款",
+                            "color": "green"
+                        }
+                    ]
                 }
             },
             "交易时间": {
-                "name": "交易时间",
-                "type": "date",
                 "date": {}
             },
             "金额(元)": {
-                "name": "金额(元)",
-                "type": "number",
                 "number": {
-                    "format": "number"
+                    "format": "yuan"
                 }
             },
             "交易对方": {
-                "name": "交易对方",
-                "type": "rich_text",
                 "rich_text": {}
             },
             "商品": {
-                "id": "title",
-                "name": "商品",
-                "type": "title",
                 "title": {}
             },
             "交易平台": {
-                "name": "交易平台",
-                "type": "select",
                 "select": {
-                    "options": []
+                    "options": [
+                        {
+                            "name": "支付宝",
+                            "color": "blue"
+                        },
+                        {
+                            "name": "微信",
+                            "color": "green"
+                        }
+                    ]
                 }
             }
         },

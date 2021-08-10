@@ -1,15 +1,34 @@
-import datetime
+import json
+import os
 
 from template import bill_database_template
 from utils import notion_api, wechat_bill_process, alipay_bill_process
 
-PARENT_PAGE_ID = "4401b02f36d24bd39db9d3df9b70d0d2"
-now = datetime.datetime.now()
+# get project path
+PROJECT_PATH = os.path.dirname(os.path.abspath('__file__'))
 
-format_date = now.strftime("%Y-%m")
 
 if __name__ == '__main__':
-    db_id = notion_api.create_database(bill_database_template.get_template("%s月度账单" % format_date, PARENT_PAGE_ID))
-    alipay_bill_process.get_alipay_bill(db_id)
-    wechat_bill_process.get_wechat_bill(db_id)
-    print(db_id)
+    # read config from conf.json
+    with open("conf.json", 'r') as f:
+        config = json.load(f)
+        print(config)
+
+        parent_page_id = config["notion_config"]["parent_page_id"]
+        title = config["notion_config"]["title"]
+        bill_path = config["file_config"]["path"]
+        wechat_file = config["file_config"]["bill_files"]["wechat"]
+        alipay_file = config["file_config"]["bill_files"]["alipay"]
+
+        # get file path
+        project_bill_path = os.path.join(PROJECT_PATH, bill_path)
+        wechat_file_path = os.path.join(project_bill_path, wechat_file)
+        alipay_file_path = os.path.join(project_bill_path, alipay_file)
+
+        # create database under parent page
+        db_id = notion_api.create_database(bill_database_template.get_template(title, parent_page_id))
+
+        # precess different bills
+        alipay_bill_process.get_alipay_bill(db_id, alipay_file_path)
+        wechat_bill_process.get_wechat_bill(db_id, wechat_file_path)
+        print(db_id)

@@ -1,4 +1,7 @@
+# 不上传私人csv
 *.csv
+
+# PyCharm related
 .idea/
 
 #############PYTHON IGNORE#############

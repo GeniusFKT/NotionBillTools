@@ -4,9 +4,13 @@ from template import bill_database_template
 
 base_url = "https://api.notion.com"
 
+with open("conf.json", 'r') as f:
+    config = json.load(f)
+    secret_key = config["user_config"]["secret"]
+
 headers = {
     "Notion-Version": "2021-07-27",
-    "Authorization": "Bearer secret_Gf9qDfuNENFITYxhgwW5ffdDdmN24fkcYf0FmdwMO6y",
+    "Authorization": "Bearer %s" % secret_key,
 }
 
 
@@ -61,6 +65,6 @@ def create_database(body):
 
 
 if __name__ == '__main__':
-    # get_database_info("a878e26f4692414384cb10c66562ba36")
-    # create_database(bill_database_template.get_template("111", "4401b02f36d24bd39db9d3df9b70d0d2"))
-    query_database("a878e26f4692414384cb10c66562ba36")
+    print(headers)
+    create_database(bill_database_template.get_template("202107", "4401b02f36d24bd39db9d3df9b70d0d2"))
+

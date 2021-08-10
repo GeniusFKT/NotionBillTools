@@ -1,0 +1,16 @@
+{
+  "user_config": {
+    "secret": "secret_Gf9qDfuNENFITYxhgwW5ffdDdmN24fkcYf0FmdwMO6y"
+  },
+  "notion_config": {
+    "parent_page_id": "4401b02f36d24bd39db9d3df9b70d0d2",
+    "title": "202107"
+  },
+  "file_config": {
+    "path": "bills",
+    "bill_files": {
+      "wechat": "微信支付账单(20210701-20210731).csv",
+      "alipay": "支付宝支付账单(20210701-20210731).csv"
+    }
+  }
+}
