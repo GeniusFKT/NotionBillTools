@@ -1,4 +1,5 @@
 *.csv
+.idea/
 
 #############PYTHON IGNORE#############
 # Byte-compiled / optimized / DLL files
