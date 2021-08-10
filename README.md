@@ -30,5 +30,5 @@ A：请参照[链接](https://developers.notion.com/docs/getting-started)进行I
 
 Q：page的id怎么看
 
-A：在notion上右键页面并复制链接，id为https://www.notion.so/后？前的一串字符串
+A：在notion上右键页面并复制链接，id为https://www.notion.so/ 后以及？前的一串字符串
 

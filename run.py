@@ -5,12 +5,12 @@ from template import bill_database_template
 from utils import notion_api, wechat_bill_process, alipay_bill_process
 
 # get project path
-PROJECT_PATH = os.path.dirname(os.path.abspath('__file__'))
-
+PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
+CONF_PATH = os.path.join(PROJECT_PATH, "conf.json")
 
 if __name__ == '__main__':
     # read config from conf.json
-    with open("conf.json", 'r') as f:
+    with open(CONF_PATH, 'r') as f:
         config = json.load(f)
         print(config)
 

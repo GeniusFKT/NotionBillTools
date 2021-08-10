@@ -1,10 +1,18 @@
 import requests
 import json
-from template import bill_database_template
+import os
 
+
+# path
+UTIL_PATH = os.path.dirname(os.path.abspath(__file__))
+PROJECT_PATH = os.path.dirname(UTIL_PATH)
+config_path = os.path.join(PROJECT_PATH, "conf.json")
+
+# base api url
 base_url = "https://api.notion.com"
 
-with open("conf.json", 'r') as f:
+# load secret key
+with open(config_path, 'r') as f:
     config = json.load(f)
     secret_key = config["user_config"]["secret"]
 
@@ -62,9 +70,3 @@ def create_database(body):
     response_dict = json.loads(response.text)
 
     return response_dict.get("id")
-
-
-if __name__ == '__main__':
-    print(headers)
-    create_database(bill_database_template.get_template("202107", "4401b02f36d24bd39db9d3df9b70d0d2"))
-
