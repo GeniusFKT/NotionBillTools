@@ -3,18 +3,11 @@ import json
 import os
 
 
-# path
-UTIL_PATH = os.path.dirname(os.path.abspath(__file__))
-PROJECT_PATH = os.path.dirname(UTIL_PATH)
-config_path = os.path.join(PROJECT_PATH, "conf.json")
-
 # base api url
 base_url = "https://api.notion.com"
 
 # load secret key
-with open(config_path, 'r') as f:
-    config = json.load(f)
-    secret_key = config["user_config"]["secret"]
+secret_key = os.environ.get("NOTION_KEY")
 
 headers = {
     "Notion-Version": "2021-07-27",

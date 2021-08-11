@@ -1,7 +1,4 @@
 {
-  "user_config": {
-    "secret": ""
-  },
   "notion_config": {
     "parent_page_id": "",
     "title": ""
