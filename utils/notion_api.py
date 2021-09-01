@@ -10,7 +10,7 @@ base_url = "https://api.notion.com"
 secret_key = os.environ.get("NOTION_KEY")
 
 headers = {
-    "Notion-Version": "2021-07-27",
+    "Notion-Version": "2021-08-16",
     "Authorization": "Bearer %s" % secret_key,
 }
 

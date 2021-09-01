@@ -92,7 +92,6 @@ def get_bill_item_template(database_id: str, start_date: str, income: str, bill_
                            product: str, platform: str):
     body = {
         "parent": {
-            "type": "database_id",
             "database_id": database_id
         },
         "properties": {

@@ -44,6 +44,8 @@ def get_alipay_bill(database_id: str, alipay_file_path: str):
                 start_date_iso_format = ""
 
             income = row.get("收/支")
+            if income == "":
+                income = "转账"
             bill_type = row.get("类型")
             # money example: "2000.00"
             money = float(row.get("金额（元）"))
